@@ -281,6 +281,8 @@ def append(*sys):
 
     """
     s1 = sys[0]
+    if not isinstance(s1, ss.StateSpace):
+        s1 = ss._convertToStateSpace(s1)
     for s in sys[1:]:
         s1 = s1.append(s)
     return s1
